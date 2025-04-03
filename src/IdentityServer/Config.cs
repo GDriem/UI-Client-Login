@@ -15,21 +15,23 @@ public static class Config
  public static IEnumerable<ApiScope> ApiScopes =>
     new ApiScope[]
     {
-        new ApiScope(name: "api1", displayName: "My API") 
+        new ApiScope(name: "api1", displayName: "My API"),
+        new ApiScope("verification", "Verification Scope") // Add this line
+  
     };
     public static IEnumerable<Client> Clients =>
         new List<Client>
         {
         // machine to machine client (from quickstart 1)
-        new Client
-        {
-            ClientId = "client",
-            ClientSecrets = { new Secret("secret".Sha256()) },
+        //new Client
+        //{
+        //    ClientId = "client",
+        //    ClientSecrets = { new Secret("secret".Sha256()) },
 
-            AllowedGrantTypes = GrantTypes.ClientCredentials,
-            // scopes that client has access to
-            AllowedScopes = { "api1" }
-        },
+        //    AllowedGrantTypes = GrantTypes.ClientCredentials,
+        //    // scopes that client has access to
+        //    AllowedScopes = { "api1" }
+        //},
         // interactive ASP.NET Core Web App
         new Client
         {
@@ -47,7 +49,9 @@ public static class Config
             AllowedScopes =
             {
                 IdentityServerConstants.StandardScopes.OpenId,
-                IdentityServerConstants.StandardScopes.Profile
+                IdentityServerConstants.StandardScopes.Profile,
+                     "verification",
+                     "api1"
             }
         }
         };
