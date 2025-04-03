@@ -93,3 +93,4 @@ packages/
 # Publicaciones / despliegues
 publish/
 
+/src/IdentityServer/keys/is-signing-key-78F3B1859A258141ADA40605C41DEC0E.json
